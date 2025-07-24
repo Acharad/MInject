@@ -1,0 +1,19 @@
+{
+  "name": "com.minject",
+  "version": "1.0.0",
+  "displayName": "MInject",
+  "description": "DI tool",
+  "documentationUrl": "https://www.acharad.github.io",
+  "author": {
+    "name": "Ahmet İmran Kavraş",
+    "email": "iahmetkavras@gmail.com",
+    "url": "https://www.acharad.github.io"
+  },
+  "samples": [
+    {
+      "displayName": "Simple Demo Samples",
+      "description": "Contains a demo usage MInject package.",
+      "path": "Samples~/Demo"
+    }
+  ]
+}
