@@ -240,7 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a089f54fd427475389cdf3a1cd9cca9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  installers:
+  scriptableInstallers:
+  - {fileID: 11400000, guid: 8005e674635e8b64c927ee1346860c69, type: 2}
+  monoInstallers:
   - {fileID: 1424508770}
   - {fileID: 598016823}
 --- !u!4 &432263979

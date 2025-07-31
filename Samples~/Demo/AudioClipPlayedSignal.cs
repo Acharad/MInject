@@ -1,5 +1,4 @@
-using ServiceSystem;
-using ServiceSystem.Signal;
+using MInject.Runtime.Signal;
 
 namespace Audio
 {

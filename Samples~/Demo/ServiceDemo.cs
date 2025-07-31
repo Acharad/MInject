@@ -1,6 +1,6 @@
 using Audio;
-using ServiceSystem;
-using ServiceSystem.Signal;
+using MInject.Runtime;
+using MInject.Runtime.Signal;
 using UnityEngine;
 
 public class ServiceDemo : MonoBehaviour
@@ -18,12 +18,10 @@ public class ServiceDemo : MonoBehaviour
         _signalBus.Subscribe<AudioClipPlayedSignal>(OnClipPlayed);
         
         _audioService.Test();
-
-        Debug.Log("ahmet deneme inject");
     }
 
     private void OnClipPlayed(AudioClipPlayedSignal obj)
     {
-        Debug.Log(obj.ClipName);
+        Debug.Log("Played clip name : " + obj.ClipName);
     }
 }

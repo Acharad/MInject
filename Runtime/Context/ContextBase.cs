@@ -9,7 +9,8 @@ namespace MInject.Runtime.Context
 {
     public class ContextBase : MonoBehaviour
     {
-        [SerializeField] private List<MonoInstallerBase> installers;
+        [SerializeField] private List<ScriptableInstallerBase> scriptableInstallers;
+        [SerializeField] private List<MonoInstallerBase> monoInstallers;
         private readonly Dictionary<Type, IService> _serviceDic = new();
 
         protected virtual void Awake()
@@ -25,11 +26,18 @@ namespace MInject.Runtime.Context
 
         private void InstallInstallers()
         {
-            foreach (var installer in installers)
+            foreach (var installer in monoInstallers)
             {
                 InjectInstallerContext(installer);
                 installer.InstallBindings();
             }
+
+            foreach (var installer in scriptableInstallers)
+            {
+                InjectInstallerContext(installer);
+                installer.InstallBindings();
+            }
+            
             InjectServices();
         }
         
@@ -39,13 +47,7 @@ namespace MInject.Runtime.Context
             _serviceDic[type] = service;
         }
 
-        public T GetService<T>() where T : class, IService
-        {
-            _serviceDic.TryGetValue(typeof(T), out var service);
-            return service as T;
-        }
-
-        private void InjectInstallerContext(MonoInstallerBase installer)
+        private void InjectInstallerContext(IInstaller installer)
         {
             var types = GetTypeHierarchy(installer.GetType());
 
